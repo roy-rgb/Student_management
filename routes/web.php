@@ -15,4 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home','StudentController@index')->name('index');
 Route::get('/create','StudentController@create')->name('create');
+Route::get('/edit/{id}','StudentController@edit')->name('edit');
+
 Route::post('/store','StudentController@store')->name('store');
+Route::post('/update/{id}','StudentController@update')->name('update');
+Route::post('/delete/{id}','StudentController@delete')->name('delete');
+
+
+

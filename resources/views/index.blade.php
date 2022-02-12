@@ -27,8 +27,15 @@
                <td>{{$tm->department_name}}</td>
                <td>{{$tm->info}}</td>
                <td>
-                   <a href="#" class="btn btn-success">Edit</a>
-               </td>
+                   <a href="{{ route('edit', $tm->id) }}" class="btn btn-success">Edit</a>
+              
+                <form class="form-inline" action="{{ route( 'delete', $tm->id ) }}" method="post">
+                        @csrf   
+                <input type="submit" class="btn btn-danger" value="delete">
+               </form>
+
+                </td>
+             
 
            </tr>
                 @endforeach

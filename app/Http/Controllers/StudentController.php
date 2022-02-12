@@ -18,6 +18,30 @@ class StudentController extends Controller
       return view('create');
     }
 
+    public function edit($id)
+    {
+      $student = Sudent::find($id);
+      return view('edit')->with('student',$student);
+    }
+
+     public function delete($id)
+     {
+      $student = Sudent::find($id);
+      $student->delete();
+       return redirect()->route('index');
+     }
+
+    public function update(Request $request, $id)
+    {
+      $student= sudent::find($id);
+      $student->name = $request->name;
+      $student->registration_id = $request->registration_id;
+      $student->department_name = $request->department_name;
+       $student->info = $request->info;
+       $student->save();
+
+      return redirect()->route('index');
+    }
     public function store(Request $request)
     {
       ////insert data form to database
